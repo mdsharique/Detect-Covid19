@@ -1,5 +1,5 @@
 body {
-    background-color: #fff;
+    background-color: #FF5733;
 }
 
 .no-display {
@@ -10,18 +10,18 @@ body {
     margin: auto;
     padding: 10px 50px;
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .title {
-    font-size: 30px;
+    font-size: 36px;
     margin-top: 1em;
     margin-bottom: 1em;
     color: #262626;
 }
 
 .content {
-    margin-top: 10em;
+    margin-top: 14em;
 }
 
 .analyze {
@@ -30,33 +30,33 @@ body {
 
 .upload-label {
     padding: 10px;
-    font-size: 12px;
+    font-size: 18px;
 }
 
 .result-label {
     margin-top: 0.5em;
     padding: 10px;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 button.choose-file-button {
-    width: 200px;
-    height: 40px;
-    border-radius: 2px;
-    background-color: #ffffff;
-    border: solid 1px #7052CB;
-    font-size: 13px;
-    color: #7052CB;
+    width: 300px;
+    height: 60px;
+    border-radius: 3px;
+    background-color: #FFC433;
+    border: solid 2px #FF3333;
+    font-size: 16px;
+    color: #000000;
 }
 
 button.analyze-button {
-    width: 200px;
-    height: 40px;
-    border: solid 1px #7052CB;
-    border-radius: 2px;
-    background-color: #7052CB;
-    font-size: 13px;
-    color: #ffffff;
+    width: 300px;
+    height: 60px;
+    border: solid 2px #FF3333;
+    border-radius: 3px;
+    background-color: #FFC433;
+    font-size: 16px;
+    color: #000000;
 }
 
 button:focus {
