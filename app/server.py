@@ -9,7 +9,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/open?id=1_pLfH8OZtnVZkt9r8PZ80q5PwiytUkLn'
+export_file_url = 'https://drive.google.com/file/d/1_pLfH8OZtnVZkt9r8PZ80q5PwiytUkLn/view?usp=sharing'
 export_file_name = 'export.pkl'
 
 classes = ['COVID-19-Patient', 'Normal-Patient', 'Viral-Pneumonia-Patient']
