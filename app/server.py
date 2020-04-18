@@ -65,9 +65,9 @@ async def analyze(request):
     prediction, pred_idx, outputs = learn.predict(img)
     probability = outputs / sum(outputs)
     
-    if (prediction == 'COVID'):
+    if (str(prediction) == 'COVID'):
         probability = probability[0]
-    elif (prediction == 'NORMAL'):
+    elif (str(prediction) == 'NORMAL'):
         probability = probability[1]
     else:
         probability = probability[2]
