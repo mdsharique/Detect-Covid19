@@ -67,11 +67,11 @@ async def analyze(request):
     probability = probability.tolist()
     
     if (str(prediction) == 'COVID'):
-        probability = probability[0]
+        probability = round(probability[0]*100, 2)
     elif (str(prediction) == 'NORMAL'):
-        probability = probability[1]*100
+        probability = round(probability[1]*100, 2)
     else:
-        probability = probability[2]*100
+        probability = round(probability[2]*100, 2)
     
     res = str(prediction) + "(Probability: "+str(probability)+"% )"
     return JSONResponse({'result': res})
