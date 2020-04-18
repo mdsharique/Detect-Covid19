@@ -64,15 +64,16 @@ async def analyze(request):
     #prediction = learn.predict(img)[0]
     prediction, pred_idx, outputs = learn.predict(img)
     probability = outputs / sum(outputs)
+    probability = probability.tolist()
     
     if (str(prediction) == 'COVID'):
         probability = probability[0]
     elif (str(prediction) == 'NORMAL'):
-        probability = probability[1]
+        probability = probability[1]*100
     else:
-        probability = probability[2]
+        probability = probability[2]*100
     
-    res = str(prediction) + "(Probability: "+str(probability)+")"
+    res = str(prediction) + "(Probability: "+str(probability)+"% )"
     return JSONResponse({'result': res})
 
 
