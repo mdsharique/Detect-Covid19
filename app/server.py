@@ -1,5 +1,5 @@
 import aiohttp
-import cv2
+#import cv2
 import asyncio
 import uvicorn
 from fastai import *
@@ -63,7 +63,7 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     
     #prediction = learn.predict(img)[0]
-    img = cv2.resize(img, (1024, 1024))
+    #img = cv2.resize(img, (1024, 1024))
     prediction, pred_idx, outputs = learn.predict(img)
     probability = outputs / sum(outputs)
     probability = probability.tolist()
