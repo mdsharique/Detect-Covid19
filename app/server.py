@@ -1,4 +1,5 @@
 import aiohttp
+import cv2
 import asyncio
 import uvicorn
 from fastai import *
@@ -9,10 +10,10 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/7m886h0tgvumw44/export.pkl?dl=1'
-export_file_name = 'export.pkl'
+export_file_url = 'https://www.dropbox.com/s/154c0vkdclsoi2s/4class_94.pkl?dl=1'
+export_file_name = '4class_94.pkl'
 
-classes = ['COVID-19-Patient', 'Normal-Patient', 'Viral-Pneumonia-Patient']
+classes = ['COVID-AP-PATIENT', 'NORMAL-AP-PATIENT', 'NORMAL-PA-PATIENT', 'VIRAL-PNEUMONIA-AP-PATIENT']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -62,16 +63,19 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     
     #prediction = learn.predict(img)[0]
+    img = cv2.resize(img, (1024, 1024))
     prediction, pred_idx, outputs = learn.predict(img)
     probability = outputs / sum(outputs)
     probability = probability.tolist()
     
-    if (str(prediction) == 'COVID'):
+    if (str(prediction) == 'COVID-AP-PATIENT'):
         probability = round(probability[0]*100, 2)
-    elif (str(prediction) == 'NORMAL'):
+    elif (str(prediction) == 'NORMAL-AP-PATIENT'):
         probability = round(probability[1]*100, 2)
-    else:
+    elif (str(prediction) == 'NORMAL-PA-PATIENT'):
         probability = round(probability[2]*100, 2)
+    else:
+        probability = round(probability[3]*100, 2)
     
     res = str(prediction) + "(Probability: "+str(probability)+"% )"
     return JSONResponse({'result': res})
